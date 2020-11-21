@@ -1,8 +1,8 @@
+import os
 import pyotp
+import time
 
 
 def gen_otp():
-    print("Generating OTP")
-    key = pyotp.random_base32()
-    totp = pyotp.TOTP("JBSWY3DPEHPK3PXP")
-    print("Current OTP:", totp.now())
+    totp = pyotp.TOTP(os.environ['TOTP_KEY'])
+    print("Current TOTP:", totp.now())
